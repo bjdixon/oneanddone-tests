@@ -21,7 +21,7 @@ class Base(Page):
         """Return the common Header region."""
         return self.HeaderRegion(self.testsetup)
 
-    
+
     class HeaderRegion(Page):
         _browserid_login_locator = (By.CSS_SELECTOR, '.browserid-login > span')
         _logout_menu_item_locator = (By.CSS_SELECTOR, '.auth-menu > .browserid-logout')

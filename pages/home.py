@@ -14,3 +14,12 @@ class HomePage(Base):
     def go_to_page(self):
         self.selenium.get(self.base_url + '/')
         self.is_the_current_page
+
+    @property
+    def favicon_url(self):
+        import requests
+        from bs4 import BeautifulSoup
+
+        r = requests.get(self.base_url, verify=False)
+        html = BeautifulSoup(r.content)
+        return html.find(attrs={'rel': 'shortcut icon'}).get('href')
